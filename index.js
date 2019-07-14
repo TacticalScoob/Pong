@@ -24,7 +24,7 @@ function setup() {
 let Score = {
     update : function() {
         this.ctx = context
-        ctx.clearRect((canvas.width/2)-50,0,(canvas.width/2)+50,50)
+        ctx.clearRect((canvas.width/2)-50,0,100,50)
         this.ctx.fillStyle = '#ffffff'
         this.ctx.font = '30px Verdanda'
         this.ctx.fillText(Lscore + ' | ' + Rscore,canvas.width/2-50,50)
