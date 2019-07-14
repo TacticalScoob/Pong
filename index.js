@@ -12,7 +12,7 @@ let Lscore = 0
 function setup() {
     canvas.height = window.innerHeight
     canvas.width = window.innerWidth
-    paddleLeft = new paddle(40,canvas.height/2,false);
+    paddleLeft = new paddle(80,canvas.height/2,false);
     paddleRight = new paddle(canvas.width - 40,canvas.height/2,false);
     ball = new puck()
     interval = setInterval(updateGame, 20);
