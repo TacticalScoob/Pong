@@ -7,7 +7,14 @@ let interval
 let scoreInterval
 let started
 let Rscore = 0
-let Lscore = 0
+let Lscore = 0 
+let ping
+let pong
+
+function preload() {
+    ping = loadSound("Sounds/Ping1.mp3")
+    pong = loadSound("Sounds/Ping2.mp3")
+}
 
 function setup() {
     canvas.height = window.innerHeight
@@ -167,14 +174,19 @@ class puck {
         if (this.positionx + this.width > paddleRight.positionx & this.positiony + this.height > paddleRight.positiony & this.positiony < paddleRight.positiony + paddleRight.height) {
             this.velocityx = (Math.floor(Math.random() * 3) + 3) * -1
             this.velocityy *= 1.2
+            ping.play()
+            
         } else if (this.positionx < paddleLeft.positionx + paddleLeft.width & this.positiony + this.height > paddleLeft.positiony & this.positiony < paddleLeft.positiony + paddleLeft.height) {
             this.velocityx = Math.floor(Math.random() * 3) + 3
             this.velocityy *= 1.2
+            pong.play()
         }
         if (this.positiony + this.height > canvas.height) {
             this.velocityy = (Math.floor(Math.random() * 2) +1) * -1
+            ping.play()
         } else if (this.positiony < 0) {
             this.velocityy = Math.floor(Math.random() * 2) +1
+            pong.play()
         }
         if (this.positionx < (paddleLeft.positionx + paddleLeft.width) - 10) {
             started = false
@@ -194,4 +206,5 @@ class puck {
         this.velocityy = 2
     }
 }
+
 
